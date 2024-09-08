@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CSS Variable With JS</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text">
+            <p>Update CSS Variables With
+            <h1>JS</h1>
+            </p>
+        </div>
+        <div class="controlers">
+            <label for="spacing">Spacing</label>
+            <input type="range" name="spacing" value="10" data-sizing="px" min="10" max="50" id="spacing">
+            <label for="blur">Blur</label>
+            <input type="range" name="blur" value="10" data-sizing="px" min="0" max="200"  id="blur">
+            <label for="color">Color</label>
+            <input type="color" name="color" id="color">
+        </div>
+
+        <div class="image">
+            <img src="./images/aron-visuals-BXOXnQ26B7o-unsplash.jpg" alt="image">
+        </div>
+    </div>
+</body>
+
+<script>
+
+    const inputs = document.querySelectorAll(".controlers input")
+
+    function handleChange() {
+        const suffix = this.dataset.sizing || ""
+        document.documentElement.style.setProperty(`--${this.name}`, `${this.value}${suffix}`)
+    }
+    inputs.forEach(input => input.addEventListener("mousemove", handleChange))
+    inputs.forEach(input => input.addEventListener("change", handleChange))
+
+</script>
+
+</html>
