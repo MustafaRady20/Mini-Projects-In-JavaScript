@@ -19,7 +19,7 @@
             <label for="spacing">Spacing</label>
             <input type="range" name="spacing" value="10" data-sizing="px" min="10" max="50" id="spacing">
             <label for="blur">Blur</label>
-            <input type="range" name="blur" value="10" data-sizing="px" min="0" max="200"  id="blur">
+            <input type="range" name="blur" value="10" data-sizing="px" min="0" max="200" id="blur">
             <label for="color">Color</label>
             <input type="color" name="color" id="color">
         </div>
@@ -31,6 +31,21 @@
 </body>
 
 <script>
+
+    function func() {
+        var part = []
+        for (var i = 0; i < 10; i++) {
+            part[i] = function(){
+                return i
+            }
+        }
+        return part
+    }
+
+    var part = func()
+   console.log( part[1]())
+    // console.log(part[5])
+
 
     const inputs = document.querySelectorAll(".controlers input")
 
